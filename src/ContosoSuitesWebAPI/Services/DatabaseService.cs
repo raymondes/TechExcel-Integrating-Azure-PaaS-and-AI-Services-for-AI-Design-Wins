@@ -80,7 +80,7 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get bookings for a specific hotel that are after a specified date.
     /// </summary>
-    [KernelFunction];
+    [KernelFunction]
     [Description("Get all booking By Hotel and minimum Date.")]
     
     public async Task<IEnumerable<Booking>> GetBookingsByHotelAndMinimumDate(int hotelId, DateTime dt)
@@ -114,7 +114,7 @@ public class DatabaseService : IDatabaseService
         return bookings;
     }
 
-    [KernelFunction];
+    [KernelFunction]
     [Description("Get All Bookings that are Missing Hotel Rooms")]
     public async Task<IEnumerable<Booking>> GetBookingsMissingHotelRooms()
     {
