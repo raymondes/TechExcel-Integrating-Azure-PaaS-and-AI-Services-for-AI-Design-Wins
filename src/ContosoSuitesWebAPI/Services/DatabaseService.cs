@@ -50,7 +50,7 @@ public class DatabaseService : IDatabaseService
     [Description("Get all bookings for a single hotel.")]
     public async Task<IEnumerable<Booking>> GetBookingsForHotel(int hotelId)
     {
-        [Description("The ID of the hotel")] int hotelId
+        [Description("The ID of the hotel")] int hotelId;
         var sql = "SELECT BookingID, CustomerID, HotelID, StayBeginDate, StayEndDate, NumberOfGuests FROM dbo.Booking WHERE HotelID = @HotelID";
         using var conn = new SqlConnection(
             connectionString: Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ContosoSuites")!
@@ -80,12 +80,13 @@ public class DatabaseService : IDatabaseService
     /// <summary>
     /// Get bookings for a specific hotel that are after a specified date.
     /// </summary>
-    [KernelFunction]
+    [KernelFunction];
     [Description("Get all booking By Hotel and minimum Date.")]
+    
     public async Task<IEnumerable<Booking>> GetBookingsByHotelAndMinimumDate(int hotelId, DateTime dt)
     {
-        [Description("The ID of the hotel")] int hotelId
-        [Description("The Minimum Date")] DateTime dt
+        [Description("The ID of the hotel")] int hotelId;
+        [Description("The Minimum Date")] DateTime dt;
         var sql = "SELECT BookingID, CustomerID, HotelID, StayBeginDate, StayEndDate, NumberOfGuests FROM dbo.Booking WHERE HotelID = @HotelID AND StayBeginDate >= @StayBeginDate";
         using var conn = new SqlConnection(
             connectionString: Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ContosoSuites")!
@@ -113,7 +114,7 @@ public class DatabaseService : IDatabaseService
         return bookings;
     }
 
-    [KernelFunction]
+    [KernelFunction];
     [Description("Get All Bookings that are Missing Hotel Rooms")]
     public async Task<IEnumerable<Booking>> GetBookingsMissingHotelRooms()
     {
