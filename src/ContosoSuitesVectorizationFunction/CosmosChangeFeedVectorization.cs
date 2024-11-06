@@ -48,6 +48,7 @@ namespace ContosoSuites.Functions
         /// <summary>
         /// Listens for changes to maintenance requests in Cosmos DB and generates vector embeddings for new requests.
         /// </summary>
+        /// 
         [Function("VectorizeMaintenanceRequests")]
         [CosmosDBOutput(DatabaseName, ContainerName, Connection = "CosmosDBConnectionString")]
         public object Run([CosmosDBTrigger(
